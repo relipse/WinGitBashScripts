@@ -1,0 +1,8 @@
+#!/bin/bash
+winpwd=$PWD
+winpwd=${winpwd//\//\\}
+winpwd=${winpwd/\\c\\/C:\\}
+winpwd=${winpwd/\\usr\\/C:\\Program Files (x86)\\Git\\}
+winpwd=${winpwd/\\/\\\\}
+"/c/Program Files/grepWin/grepWin.exe" /searchpath:"$winpwd" "$@"
+
