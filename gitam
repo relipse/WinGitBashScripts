@@ -1,0 +1,5 @@
+#!/bin/bash
+dt=$(date)
+echo "Auto-committing modified files..." 
+set -x
+git commit -am "${*:-quick-commit-$dt}"
