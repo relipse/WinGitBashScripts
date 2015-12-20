@@ -1,0 +1,26 @@
+#!/c/util/apps/php-5.6.16-nts-Win32-VC11-x86/php.exe
+<?php
+$file_to_convert = '';
+
+if (isset($argv[1])){
+	$file_to_convert = $argv[1];
+}else{
+	$f = fopen( 'php://stdin', 'r' );
+	$s = '';
+	while( $line = fgets( $f ) ) {
+	  $s .= $line;
+	}
+	fclose( $f );
+	$file_to_convert = $s;
+}
+
+if (empty($file_to_convert)){
+	die('No input given.'."\n");
+}
+//'/c/utility/web/handofhelp_com/privlib/phpseclib0.3.5'
+
+$newfile = $file_to_convert;
+$newfile = str_replace('/c/', 'c:\\', $newfile);
+$newfile = str_replace('/', '\\', $newfile);
+
+echo $newfile;
